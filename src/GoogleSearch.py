@@ -17,10 +17,10 @@ class GoogleSearch(WebSearchAPI):
 		result[WebSearchAPI.TAG_DENOMINATOR]=self._search_google("")
 		
 		#キー検索
-		query_value=""
+		query_value=0
 		for key in key_list:
-			query_value += "+" + key
-		result[WebSearchAPI.TAG_NUMERATOR]=self._search_google(query_value)
+			query_value += self._search_google("+"+key)
+		result[WebSearchAPI.TAG_NUMERATOR]=query_value
 
 		return result
 
