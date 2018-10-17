@@ -13,7 +13,7 @@ class SeleniumScraping:
 		# ブラウザのオプションを格納する変数をもらってきます。
 		options = Options()
 		# Headlessモードを有効にする（コメントアウトするとブラウザが実際に立ち上がります）
-		options.set_headless(True)
+		options.add_argument('--headless')
 		# ブラウザを起動する
 		self._driver = webdriver.Chrome(chrome_options=options)
 

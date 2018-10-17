@@ -1,7 +1,7 @@
 #レバテック検索
 import sys, os, re, nltk
 from WebSearchAPI import *
-from SeleniumScraping import SeleniumScraping
+from Scraping import Scraping
 
 class LevatechSearch(WebSearchAPI):
 
@@ -28,7 +28,7 @@ class LevatechSearch(WebSearchAPI):
 		return self._search(self.BASEURL+"?keyword="+key)
 
 	def _search(self, url):
-		result = SeleniumScraping.get_instance().scraping(url, self.BASEID)
+		result = Scraping.scraping(url, self.BASEID)
 		return int(result)
 
 	#public

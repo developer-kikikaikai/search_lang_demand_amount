@@ -1,11 +1,11 @@
 #Google検索
-import sys, os, re, nltk
+import sys, os, re, nltk, urllib.parse
 from WebSearchAPI import *
-from SeleniumScraping import SeleniumScraping
+from Scraping import Scraping
 
 class GoogleSearch(WebSearchAPI):
 
-	BASEURL="https://www.google.co.jp/search?tbs=qdr:y&q=プログラミング言語"
+	BASEURL="https://www.google.co.jp/search?tbs=qdr:y&q="+urllib.parse.quote("プログラミング言語")
 	BASEID="resultStats"
 
 	#public
@@ -25,8 +25,7 @@ class GoogleSearch(WebSearchAPI):
 		return result
 
 	def _search_google(self, key):
-		engine = SeleniumScraping.get_instance()
-		result_text = engine.scraping(self.BASEURL+key, self.BASEID)
+		result_text = Scraping.scraping(self.BASEURL+key, self.BASEID)
 		num_tokenizer = nltk.RegexpTokenizer(u'([0-9])')
 		return int("".join(num_tokenizer.tokenize(result_text)))
 
