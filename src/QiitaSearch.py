@@ -11,7 +11,6 @@ from QiitaAPIMain import QiitaAPIMain
 from QiitaAPI import QiitaAPI
 
 def call_items(obj):
-	print("call " + str(obj['data']['show']['item']['page']))
 	result=QiitaAPIMain(['dummy',obj,'items']).action()
 	return result
 
