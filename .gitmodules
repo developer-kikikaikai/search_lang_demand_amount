@@ -1,0 +1,3 @@
+[submodule "libs"]
+	path = libs
+	url = https://github.com/developer-kikikaikai/get_qiita_informaion.git
