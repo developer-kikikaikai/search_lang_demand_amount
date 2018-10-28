@@ -1,5 +1,5 @@
 # coding: UTF-8
-#Ql:https://qiita.com/Azunyan1111/items/b161b998790b1db2ff7a
+#å‚è€ƒ:https://qiita.com/Azunyan1111/items/b161b998790b1db2ff7a
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -10,11 +10,11 @@ class SeleniumScraping:
 	_instance = None
 
 	def __init__(self):
-		# ƒuƒ‰ƒEƒU‚ÌƒIƒvƒVƒ‡ƒ“‚ğŠi”[‚·‚é•Ï”‚ğ‚à‚ç‚Á‚Ä‚«‚Ü‚·B
+		# ãƒ–ãƒ©ã‚¦ã‚¶ã®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã‚’ã‚‚ã‚‰ã£ã¦ãã¾ã™ã€‚
 		options = Options()
-		# Headlessƒ‚[ƒh‚ğ—LŒø‚É‚·‚éiƒRƒƒ“ƒgƒAƒEƒg‚·‚é‚Æƒuƒ‰ƒEƒU‚ªÀÛ‚É—§‚¿ã‚ª‚è‚Ü‚·j
+		# Headlessãƒ¢ãƒ¼ãƒ‰ã‚’æœ‰åŠ¹ã«ã™ã‚‹ï¼ˆã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã™ã‚‹ã¨ãƒ–ãƒ©ã‚¦ã‚¶ãŒå®Ÿéš›ã«ç«‹ã¡ä¸ŠãŒã‚Šã¾ã™ï¼‰
 		options.set_headless(True)
-		# ƒuƒ‰ƒEƒU‚ğ‹N“®‚·‚é
+		# ãƒ–ãƒ©ã‚¦ã‚¶ã‚’èµ·å‹•ã™ã‚‹
 		self._driver = webdriver.Chrome(chrome_options=options)
 
 	@classmethod
@@ -25,13 +25,13 @@ class SeleniumScraping:
 
 	def scraping(self, url, id):
 		try:
-			# ƒuƒ‰ƒEƒU‚ÅƒAƒNƒZƒX
+			# ãƒ–ãƒ©ã‚¦ã‚¶ã§ã‚¢ã‚¯ã‚»ã‚¹
 			self._driver.get(url)
-			# HTML‚ğ•¶šƒR[ƒh‚ğUTF-8‚É•ÏŠ·‚µ‚Ä‚©‚çæ“¾
+			# HTMLã‚’æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’UTF-8ã«å¤‰æ›ã—ã¦ã‹ã‚‰å–å¾—
 			html = self._driver.page_source.encode('utf-8')
-			# BeautifulSoup‚Åˆµ‚¦‚é‚æ‚¤‚Éƒp[ƒX‚µ‚Ü‚·
+			# BeautifulSoupã§æ‰±ãˆã‚‹ã‚ˆã†ã«ãƒ‘ãƒ¼ã‚¹ã—ã¾ã™
 			soup = BeautifulSoup(html, "html.parser")
-			# id‚Ì—v‘f‚ğ•\¦
+			# idã®è¦ç´ ã‚’è¡¨ç¤º
 			return soup.select_one(f"#{id}").text
 		except:
 			return ""
